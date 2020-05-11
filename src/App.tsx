@@ -5,6 +5,8 @@ import { APODViewer } from './components/APODViewer';
 import { StyledLayout, StyledDateHeader, StyledButton } from './App.style';
 import DatePicker from 'react-datepicker';
 
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+
 import "react-datepicker/dist/react-datepicker.css";
 
 const CustomInput = ({value, onClick}: any) => (
@@ -13,7 +15,7 @@ const CustomInput = ({value, onClick}: any) => (
 
 export const App: React.FC = () => {
     const [apod, setApod] = useState<APOD>();
-    const [date, setDate] = useState<Date | null>(new Date());
+    const [date, setDate] = useState<Date>(new Date());
 
     useEffect(() => {
         setApod(undefined);
@@ -25,10 +27,15 @@ export const App: React.FC = () => {
     return (
         <StyledLayout>
             <StyledDateHeader>
+                <FaArrowLeft color="white" onClick={() => {
+                    const newDate = new Date();
+                    newDate.setDate(date.getDate() - 1);
+                    setDate(newDate);
+                }} />
                 <div>
                     <DatePicker
                         dateFormat="EEEE MMMM d, yyyy"
-                        onChange={newDate => setDate(newDate)}
+                        onChange={newDate => setDate(newDate!)}
                         selected={date} 
                         customInput={<CustomInput />}
                         filterDate={fDate => new Date() > fDate}
@@ -36,6 +43,12 @@ export const App: React.FC = () => {
                         showPopperArrow={false}
                     />
                 </div>
+                <FaArrowRight color={date.getDate() < new Date().getDate() ? "white" : "gray"} onClick={() => {
+                    if (date.getDate() === new Date().getDate()) return;
+                    const newDate = new Date();
+                    newDate.setDate(date.getDate() + 1);
+                    setDate(newDate);
+                }} />
             </StyledDateHeader>
             <APODViewer apod={apod} hd />
         </StyledLayout>

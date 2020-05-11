@@ -8,10 +8,12 @@ export const StyledLayout = styled.div`
 `;
 
 export const StyledDateHeader = styled.div`
+    padding: 0 20px;
+    box-sizing: border-box;
     width: 100%;
     min-height: 50px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background: #333;
 `;
