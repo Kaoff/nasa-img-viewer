@@ -25,12 +25,17 @@ export const App: React.FC = () => {
     return (
         <StyledLayout>
             <StyledDateHeader>
-                <DatePicker 
-                    onChange={newDate => setDate(newDate)}
-                    selected={date} 
-                    customInput={<CustomInput />}
-                    filterDate={fDate => new Date() > fDate}
-                />
+                <div>
+                    <DatePicker
+                        dateFormat="EEEE MMMM d, yyyy"
+                        onChange={newDate => setDate(newDate)}
+                        selected={date} 
+                        customInput={<CustomInput />}
+                        filterDate={fDate => new Date() > fDate}
+                        popperPlacement="bottom-center"
+                        showPopperArrow={false}
+                    />
+                </div>
             </StyledDateHeader>
             <APODViewer apod={apod} hd />
         </StyledLayout>

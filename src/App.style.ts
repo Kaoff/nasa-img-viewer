@@ -11,8 +11,8 @@ export const StyledDateHeader = styled.div`
     width: 100%;
     min-height: 50px;
     display: flex;
-    justify-content: space-between;
-    align-content: center;
+    justify-content: space-around;
+    align-items: center;
     background: #333;
 `;
 
