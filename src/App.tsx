@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { nasa } from '.';
 import { APOD } from './api';
+import { APODViewer } from './components/APODViewer';
 
 export const App: React.FC = () => {
     const [apod, setApod] = useState<APOD>();
@@ -14,12 +15,7 @@ export const App: React.FC = () => {
 
     return (
         <div>
-            {
-                apod ?
-                    <div>{apod.title}</div>
-                :
-                    <div>Loading...</div>
-            }
+            <APODViewer apod={apod} hd />
         </div>
     )
 }

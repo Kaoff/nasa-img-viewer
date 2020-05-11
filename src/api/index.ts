@@ -1,5 +1,6 @@
 export interface APOD {
     hdurl: string;
+    url: string;
     explanation: string;
     title: string;
     copyright: string;
