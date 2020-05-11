@@ -12,5 +12,14 @@ export const StyledDateHeader = styled.div`
     min-height: 50px;
     display: flex;
     justify-content: space-between;
+    align-content: center;
     background: #333;
+`;
+
+export const StyledButton = styled.button`
+    border: none;
+    border-radius: 4px;
+    background-color: #121212;
+    color: white;
+    padding: 10px;
 `;
