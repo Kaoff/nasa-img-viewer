@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { App } from './App';
 import * as serviceWorker from './serviceWorker';
+import { NASA } from './api';
+
+export const nasa = new NASA('XG4pjsEMdXSxH35zpMyOqxqfFx6FTxO8R7AS9CNL');
 
 ReactDOM.render(
   <React.StrictMode>
